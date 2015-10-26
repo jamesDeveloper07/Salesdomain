@@ -1,0 +1,273 @@
+<div data-theme="a" data-role="header" data-position="fixed">
+    <h3><img src="images/salesdomaindarkgrey.png" width="130px"></h3>
+    <a href="#" onclick="carregarPagina('dashboard', 'veiculosGestao');" data-icon="back" data-iconpos="left">Voltar</a>
+</div>
+<div data-role="content">
+    <div id="abaVmMonetario">
+        <div class="topo"><b>Vendas x Metas (Monetário)</b></div>
+        <div class="ui-grid-b ui-responsive" data-theme="a">
+
+            <div class="ui-block-a">
+                <div class="ui-bar ui-bar-c box">
+                    <table align="center">
+                        <tr>
+                            <td style="width:50%;">
+                                <table align="center">
+                                    <tr>
+                                        <td>
+                                            <img id="imgProspeccaoMon" src="images/setaUp.png"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div id="porcProspeccaoMon" style="color:red"></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td style="width:50%">
+                                <table align="center">
+                                    <tr>
+                                        <td align="center">
+                                            <div id="qtProspeccaoMon" style="font-size:15px;"><b></b></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">
+                                            <div style="font-size:15px;"><b>Prospecções</b></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!--
+            <div class="ui-block-b">
+                <div class="ui-bar ui-bar-c box">
+                    <table align="center">
+                        <tr>
+                            <td style="width:50%;">
+                                <table align="center">
+                                    <tr>
+                                        <td>
+                                            <img id="imgPropostasMon" src="images/setaUp.png"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div id="porcPropostasMon" style="color:green"></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td style="width:50%">
+                                <table align="center">
+                                    <tr>
+                                        <td align="center">
+                                            <div id="qtPropostasMon" style="font-size:15px;"><b></b></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">
+                                            <div style="font-size:15px;"><b>Propostas</b></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            -->
+
+            <div class="ui-block-c">
+                <div class="ui-bar ui-bar-c box">
+                    <table align="center">
+                        <tr>
+                            <td style="width:50%">
+                                <table align="center">
+                                    <tr>
+                                        <td>
+                                            <img id="imgVendasMon" src="images/setaUp.png"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div id="porcVendasMon" style="color:green"></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            <td style="width:50%">
+                                <table align="center">
+                                    <tr>
+                                        <td align="center">
+                                            <div id="qtVendasMon" style="font-size:15px;"><b></b></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">
+                                            <div style="font-size:15px;"><b>Vendas</b></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+        <div id="graficoVmMonetario" style="width: 100%;height: 300px">
+            <!--GRAFICO DINAMICO-->
+        </div>
+    </div>
+
+    <div id="abaVmQuantidade" style="display: none;">
+        <div class="topo"><b>Vendas x Metas (Quantidade)</b></div>
+        <div class="ui-grid-b ui-responsive" data-theme="a">
+
+            <div class="ui-block-a">
+                <div class="ui-bar ui-bar-c box">
+                    <table align="center">
+                        <tr>
+                            <td style="width:50%;">
+                                <table align="center">
+                                    <tr>
+                                        <td>
+                                            <img id="imgProspeccaoQuant" src="images/setaUp.png"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div id="porcProspeccaoQuant" style="color:red"></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td style="width:50%">
+                                <table align="center">
+                                    <tr>
+                                        <td align="center">
+                                            <div id="qtProspeccaoQuant" style="font-size:15px;"><b></b></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">
+                                            <div style="font-size:15px;"><b>Prospecções</b></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!--
+            <div class="ui-block-b">
+                <div class="ui-bar ui-bar-c box">
+                    <table align="center">
+                        <tr>
+                            <td style="width:50%;">
+                                <table align="center">
+                                    <tr>
+                                        <td>
+                                            <img id="imgPropostasQuant" src="images/setaUp.png"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div id="porcPropostasQuant" style="color:green"></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td style="width:50%">
+                                <table align="center">
+                                    <tr>
+                                        <td align="center">
+                                            <div id="qtPropostasQuant" style="font-size:15px;"><b></b></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">
+                                            <div style="font-size:15px;"><b>Propostas</b></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            -->
+
+            <div class="ui-block-c">
+                <div class="ui-bar ui-bar-c box">
+                    <table align="center">
+                        <tr>
+                            <td style="width:50%">
+                                <table align="center">
+                                    <tr>
+                                        <td>
+                                            <img id="imgVendasQuant" src="images/setaUp.png"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div id="porcVendasQuant" style="color:green"></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            <td style="width:50%">
+                                <table align="center">
+                                    <tr>
+                                        <td align="center">
+                                            <div id="qtVendasQuant" style="font-size:15px;"><b></b></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">
+                                            <div style="font-size:15px;"><b>Vendas</b></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="graficoVmQuantidade" style="width: 100%;height: 400px">
+            <!--GRAFICO DINAMICO-->
+        </div>
+    </div>
+
+    <div id="abaMinhaCont" style="display: none;" align="center">
+        <div class="topo"><b>Minha Contribuição no Resultado</b></div>
+        <div id="graficoMinhaCont" style="width: 100%;height: 400px">
+            <!--GRAFICO DINAMICO-->
+        </div>
+    </div>
+
+    <div id="abaDistVenda" style="display: none;" align="center">
+        <div class="topo"><b>Distribuição de Vendas</b></div>
+        <div id="graficoDistVenda" style="width: 100%;height: 400px">
+            <!--GRAFICO DINAMICO-->
+        </div>
+    </div>
+
+</div>
+<div data-role="footer" data-position="fixed">
+    <div data-role="navbar" data-grid="c">
+        <ul>
+            <li><a href="#" data-icon="grid" onclick="abrirVmMonetario();" class="ui-btn-active">Vendas x Metas (Monetário)</a></li>
+            <li><a href="#" data-icon="info" onclick="abrirVmQuantidade();">Vendas x Metas (Quantidade)</a></li>
+            <li><a href="#" data-icon="star" onclick="abrirMinhaCont();">Minha Contribuição</a></li>
+            <li><a href="#" data-icon="star" onclick="abrirDistVenda();">Distribuição de Vendas</a></li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<div data-theme="a" data-role="header" data-position="fixed">
+    <h3><img src="images/salesdomaindarkgrey.png" width="130px"></h3>
+    <a href="#" onclick="carregarPagina('atendimento', 'encerrarAtendimento');" data-icon="back" data-iconpos="left" >Voltar</a>
+</div>
+<div data-role="content">
+    <div id="cdAtendimento" style="display:none"></div>
+    <div id="cdMotivoEncerramento" style="display:none;"></div>
+    <form>
+        <ul data-role="listview" data-inset="true">
+            <li data-role="fieldcontain">
+
+                <li data-role="fieldcontain" class="MotivoEncerramentoProspeccao">
+                    <label for="slcMotivoEncerramentoAtendimento2"> Motivo Encerramento</label>
+                    <select name=""	id="slcMotivoEncerramentoAtendimento2"onchange="mostrarVendas('.VendasSemVinculos', '.BtnEncerrar', $('#cdMotivoEncerramento').text(),  this[this.selectedIndex].value)">
+                        <option value="titulo">Selecione um motivo</option>
+                    </select>
+                </li>
+
+                <div data-role="collapsible" data-collapsed="false" class="VendasSemVinculos">
+                    <h3>Vendas sem vínculo</h3>
+                    <ul data-role="listview" data-inset="true" data-split-icon="check" data-split-theme="d" id="listaVendas">
+                        <!-- DINAMICO -->
+                    </ul>
+                </div>
+
+                <li data-role="fieldcontain" class="BtnEncerrar">
+                    <div data-role="navbar" data-iconpos="top">
+                        <ul>
+                            <li><a href="" id="btnEncerrarAtendimento" data-theme="" data-icon="check" name="encerrar" onclick="encerrarAtendimentoComMotivo($('#cdAtendimento').text(), $('#slcMotivoEncerramentoAtendimento2').val())"> Encerrar </a></li>
+                        </ul>
+                    </div>
+                </li>
+
+            <li data-role="fieldcontain" class="AvisoProspeccaoJaEncerrada">
+                <h3>Prospecção já encerrada!</h3>
+            </li>
+
+            </li>
+        </ul>
+    </form>
+    <div data-role="popup" data-overlay-theme="a"
+         id="popSucessoVinculo" style="padding: 15px 15px;">
+        Atendimento Vinculado com sucesso!
+    </div>
+    <div data-role="popup" data-overlay-theme="a"
+         id="popFalhaVinculo" style="padding: 15px 15px;">
+        Falha ao vincular!
+    </div>
+    <div data-role="popup" data-overlay-theme="a"
+         id="popSucessoEncerramento" style="padding: 15px 15px;">
+        Atendimento Encerrado com sucesso!
+    </div>
+    <div data-role="popup" data-overlay-theme="a"
+         id="popFalhaEncerramento" style="padding: 15px 15px;">
+        Falha ao encerrar!
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $( document ).ready(function() {
+        $('.VendasSemVinculos').hide();
+        $('.BtnEncerrar').hide();
+        $('.AvisoProspeccaoJaEncerrada').hide();
+    });
+
+</script>

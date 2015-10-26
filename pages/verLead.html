@@ -1,0 +1,232 @@
+<div data-theme="a" data-role="header" data-position="fixed">
+    <h3>
+        <img src="images/salesdomaindarkgrey.png" width="130px">
+    </h3>
+    <a href="#" data-icon="back" data-iconpos="left" onclick="carregarPagina('lead', 'verLead');">
+        Voltar
+    </a>
+</div>
+<div data-role="content">
+    <div id="codFuncionarioLogadoLead" style="display:none;"></div>
+    <div id="cdLead" style="display:none;"></div>
+    <div id="cdAtendimento" style="display:none;"></div>
+    <div id="dataInicio" style="display:none;"></div>
+    <div id="codFuncionario" style="display:none;"></div>
+    <div id="cdCliente" style="display:none;"></div>
+    <div id="moe_cdmotivoencerramento" style="display:none;"></div>
+
+    <div id="situacaoAberto"> <b><font size="10" face="verdana" color="green">&nbspA</font></b><b><font size="5" face="verdana" color="black">berto</font></b> </div>
+    <div id="situacaoEncerrado"> <b><font size="10" face="verdana" color="red">&nbspE</font></b><b><font size="5" face="verdana" color="black">ncerrado</font></b> </div>
+
+    <div id="formulario">
+        <form>
+            <ul data-role="listview" data-inset="true">
+                <li data-role="fieldcontain">
+                    <label for="txtNomeLead">Nome</label>
+                    <input id="txtNomeLead" placeholder="Informe o Nome" type="text" READONLY>
+                </li>
+                <li data-role="fieldcontain">
+                    <label for="txtTelefoneLead">Telefone</label>
+                    <div style="display: -webkit-inline-box; width: 60%;">
+                        <div style="width: 40%">
+                            <input id="txtDDDTelefoneLead" placeholder="DDD" type="text"  maxlength="3" onkeypress='return SomenteNumero(event)' READONLY>
+                        </div>
+                        <div style="width:100%">
+                            <input id="txtTelefoneLead" placeholder="Informe o número do Telefone" type="text" maxlength=""  onkeypress='return SomenteNumero(event)' READONLY>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </form>
+        <form>
+            <ul data-role="listview" data-inset="true">
+                <li data-role="fieldcontain">
+                    <label for="txtEmailLead">E-mail</label>
+                    <input id="txtEmailLead" placeholder="Informe o e-mail" type="email" READONLY>
+                </li>
+
+                <li data-role="fieldcontain">
+                    <label for="dataQuando">Quando</label>
+                    <input type="text" id="dataQuando" name="dataQuando"  maxlength="10" READONLY >
+                </li>
+
+                <li data-role="fieldcontain">
+                    <label for="txObservacao" class="ui-input-text">Observação</label>
+                    <br></br>
+                    <label name="txObservacao" id="txObservacao" ></label>
+                </li>
+
+                <li data-role="fieldcontain" id="btnComentarios">
+                    <div class="DetalheCom">
+                        <input type="button" data-theme="a" value="Comentários (+)" data-icon="arrow-d" data-shadow="false" onclick="$('.DetalheComentarios').show(); $('.DetalheCom').hide();" /-->
+                    </div>
+                    <div class="DetalheComentarios">
+                        <input type="button"  value="Comentários (-)"  data-icon="arrow-u" data-shadow="false" data-theme="b" onclick="$('.DetalheComentarios').hide(); $('.DetalheCom').show();" />
+                    </div>
+                </li>
+
+                <li data-role="fieldcontain" class="DetalheComentarios">
+                    <label for="txComentario" class="ui-input-text">Comentário</label>
+                    <textarea cols="40" rows="10" name="txComentario" id="txComentario" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" onkeypress='return enableEnter(event)' ></textarea>
+                </li>
+
+
+                <li data-role="fieldcontain" class="DetalheComentarios">
+                    <div data-role="navbar" data-iconpos="top">
+                        <ul>
+                            <li>
+                                <a href="" id="btnEnviarComentario" data-theme="" data-icon="check" name="enviar" onclick="enviarComentarioLead($('#codFuncionarioLogadoLead').text(), $('#cdLead').text(), $('#codFuncionario').text(), $('#txComentario').val())"> Enviar </a>
+                                <!--<a href="" id="btnPesquisarAtendimento" data-theme="" data-icon="search" name="pesquisar" onclick="buscarDadosCliente()"> Pesquisar </a>-->
+                            </li>
+                            <li>
+                                <a href="" id="btnLimparComentario" data-theme="" data-icon="delete" name="limpar" onclick="limparComentarioLead()"> Limpar </a>
+                                <!--<a href="" id="btnLimparPesquisarAtendimento" data-theme="" data-icon="delete" name="limpar" onclick="limparPesquisar()"> Limpar </a>-->
+                            </li>
+                            <li>
+                                <a href="" id="btnMostrarComentario" data-theme="" data-icon="search" name="mostrar" onclick="comentariosLead($('#cdLead').text())"> Mostrar </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li data-role="fieldcontain">
+                    <label for="slcExpectativaLead"> Expectativa</label>
+                    <select	name="" id="slcExpectativaLead" READONLY>
+                        <option value="titulo">Selecione a Expectativa</option>
+                        <option value="5">Baixa</option>
+                        <option value="6">Media</option>
+                        <option value="1">Alta</option>
+                    </select>
+                </li>
+
+                <li data-role="fieldcontain">
+                    <div data-role="navbar" data-iconpos="top">
+                        <ul>
+                            <li><a href="" id="btnEditarLead" data-theme="" data-icon="check" name="adicionar" onclick="editarLead()"> Avançar para Prospecção </a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </form>
+    </div>
+    <div id="galeria" style="display:none">
+        <a href="#" onclick="fecharGaleria();" data-role="button" data-icon="delete" data-inline="true">Fechar Galeria</a>
+        <IFRAME id="frameGaleria" frameBorder=0 height=100% marginHeight=0 marginWidth=0 scrolling=yes src="" width=100% BORDERCOLOR="#FFFFFF"></IFRAME>
+        <div>
+        </div>
+
+        <div data-role="popup" data-overlay-theme="a" id="popNomeInvalido" style="padding: 15px 15px;">
+            Para buscar por nome precisa de no minimo 5 caracteres
+        </div>
+
+        <div data-role="popup" data-overlay-theme="a" id="popCpfCnpjInvalido" style="padding: 15px 15px;">
+            Favor, digitar um CPF/CNPJ valido!
+        </div>
+
+        <div data-role="popup" data-overlay-theme="a" id="popFalhaValidaCampos" style="padding: 15px 15px;">
+            Favor, preencher os campos obrigatórios!
+        </div>
+
+        <div data-role="popup" data-overlay-theme="a" id="popFalhaDetalheProduto" style="padding: 15px 15px;">
+            Favor, Selecionar um produto!
+        </div>
+
+        <div data-role="popup" id="popListaClientes" data-overlay-theme="a" style="max-width:400px;">
+            <div data-role="header" data-theme="a" class="ui-corner-top">
+                <h1>Cliente</h1>
+            </div>
+            <ul data-role="listview" data-inset="true" id="listaCliente">
+                <!-- DINAMICO -->
+            </ul>
+        </div>
+
+        <div data-role="popup" id="popListaEnderecos" data-overlay-theme="a" style="max-width:400px;">
+            <div data-role="header" data-theme="a" class="ui-corner-top">
+                <h1>Endereços:</h1>
+            </div>
+            <ul data-role="listview" data-inset="true" id="listaEnderecos">
+                <!-- DINAMICO -->
+            </ul>
+        </div>
+
+        <div data-role="popup" id="popListaComentarios" data-overlay-theme="a" style="max-width:400px;">
+            <div data-role="header" data-theme="a" class="ui-corner-top">
+                <h1>Comentários:</h1>
+            </div>
+            <ul data-role="listview" data-inset="true" id="listaComentarios">
+                <!-- DINAMICO -->
+            </ul>
+        </div>
+
+
+
+        <div data-role="popup" id="popNovoComentario" data-overlay-theme="a" style="max-width:400px;">
+            <div data-role="header" data-theme="a" class="ui-corner-top">
+                <h1>Deixe Seu Comentário:</h1>
+            </div>
+
+            <!--
+            <li data-role="fieldcontain">
+                <label for="txComentario" class="ui-input-text">Comentário:</label>
+                <textarea cols="40" rows="10" name="txComentario" id="txComentario" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></textarea>
+            </li>
+            -->
+
+            <!--
+            <li data-role="fieldcontain">
+                <input type="button" id="enviarComentario" data-theme="a" value="Enviar" onclick="" />
+            </li>
+            -->
+
+        </div>
+
+        <div data-role="popup" data-overlay-theme="a"
+             id="popFalhaEnviarComentario" style="padding: 15px 15px;">
+            Falha ao enviar comentário!
+        </div>
+
+        <div data-role="popup" data-overlay-theme="a"
+             id="popSucessoEnviarComentario" style="padding: 15px 15px;">
+            Comentário enviado com sucesso!
+        </div>
+
+
+
+
+
+        <script type="text/javascript">
+
+            buscarCodFuncionarioLogadoLead();
+
+            /*
+            $( document ).ready(function() {
+               $('#dataQuando').datepicker({ dateFormat: 'dd/mm/yy' });
+            });
+            */
+
+            $('.DetalheComentarios').hide();
+
+            $('.DetalheLead').hide();
+
+            function SomenteNumero(e){
+                var tecla=(window.event)?event.keyCode:e.which;
+                if((tecla>47 && tecla<58) || tecla == 45) return true;
+                else{
+                    if (tecla==8 || tecla==0) return true;
+                    else  return false;
+                }
+            }
+
+            function enableEnter(e) {
+                var tecla=(window.event)?event.keyCode:e.which;
+
+                // If the user has pressed enter
+                if (tecla == 13) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+        </script>

@@ -1,0 +1,40 @@
+<div data-theme="a" data-role="header" data-position="fixed">
+    <div style="float:left; margin:15px;  font-size:12px;"></div>
+    <h3><img src="images/salesdomaindarkgrey.png" width="130px"></h3>
+    <a href="#" data-icon="refresh" data-iconpos="right" class="ui-btn-right" onclick="uparAtendimentos()">Sync (<font color="red"><span id="contador" class="ui-li-count">0</span></font>)</a>
+</div>
+<div data-role="content">
+    <ul data-role="listview" data-inset="true">
+
+        <li><a href="#" onclick="carregarPagina('lead', 'home');">
+            <img src="images/btnLead.png">
+            <h2>Leads</h2>
+            <p>Visualizar, Editar...</p></a>
+        </li>
+
+        <li><a href="#" onclick="carregarPagina('atendimento', 'home');">
+            <img src="images/btnAtendimento.png">
+            <h2>Prospec&ccedil;&otilde;es</h2>
+            <p>Visualizar, Adicionar, Editar...</p></a>
+        </li>
+
+        <li><a href="#" onclick="carregarPagina('dashboard', 'home');">
+            <img src="images/btnDashBoard.png">
+            <h2>Dashboard</h2>
+            <p>Meu dashboard...</p></a>
+        </li>
+
+    </ul>
+    <div data-role="popup" data-overlay-theme="a"	id="popSucessoPedido" style="padding: 15px 15px;">
+        Pedido Efetuado com sucesso!
+    </div>
+    <div data-role="popup" data-overlay-theme="a"	id="popFalhaPedido" style="padding: 15px 15px;">
+        Falha ao Solicitar Pedido!
+    </div>
+    <div data-role="popup" data-overlay-theme="a"	id="popSemAtendimentos" style="padding: 15px 15px;">
+        Sem atendimentos a enviar!
+    </div>
+    <div data-role="popup" data-overlay-theme="a"	id="popSyncConcluido" style="padding: 15px 15px;">
+
+    </div>
+</div>

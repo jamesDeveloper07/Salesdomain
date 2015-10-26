@@ -1,0 +1,27 @@
+<div data-theme="a" data-role="header" data-position="fixed">
+    <h3><img src="images/salesdomaindarkgrey.png" width="130px"></h3>
+    <a href="#" onclick="carregarPagina('atendimento', 'vendas');" data-icon="back" data-iconpos="left" >Voltar</a>
+</div>
+<div data-role="content">
+    <div id="cdAtendimento" style="display:none"></div>
+    <form>
+        <ul data-role="listview" data-inset="true">
+            <li data-role="fieldcontain">
+                <div data-role="collapsible" data-collapsed="false">
+                    <h3>Vendas sem vínculo</h3>
+                    <ul data-role="listview" data-inset="true" data-split-icon="check" data-split-theme="d" id="listaVendas">
+                        <!-- DINAMICO -->
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </form>
+    <div data-role="popup" data-overlay-theme="a"
+         id="popSucessoVinculo" style="padding: 15px 15px;">
+        Atendimento Vinculado com sucesso!
+    </div>
+    <div data-role="popup" data-overlay-theme="a"
+         id="popFalhaVinculo" style="padding: 15px 15px;">
+        Falha ao vincular!
+    </div>
+</div>	

@@ -1,0 +1,41 @@
+<!Doctype html>
+<html>
+<head>
+    <title> SalesDomain </title>
+        <script type="text/javascript" src="js/common.js"></script>
+    <script>
+   // validarVersao();
+/* observar sempre a index.html e js/main.js main.html (cordova.js)
+ * SOMENTE para WEB*/
+/*
+ 		var url = window.location;
+		url = url.toString();
+		url = url.split(".");
+		urlCont = url[3].split("/");
+		url = 'http://m.'+url[1]+'.salesdomain.com.br';
+		localStorage.setItem("servidor", url);
+		*/
+		
+	 localStorage.setItem('versao_mobile', 2.2);
+	 window.setInterval(function(){window.location = './main.html' },2000);
+		
+    </script>
+<style>
+    body{
+        background-color: #eaeaea;
+    }
+    .center{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+    }
+
+</style>
+<body>
+<div class="center">
+<img src="icon.png"  class="center">
+<img src="load.GIF"  class="center">
+
+</body>
+</html>

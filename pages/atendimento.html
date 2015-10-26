@@ -1,0 +1,174 @@
+
+<div data-theme="a" data-role="header" data-position="fixed">
+    <h3><img src="images/salesdomaindarkgrey.png" width="130px"></h3>
+    <a href="#" onclick="carregarPagina('home', 'atendimento');" data-icon="home" data-iconpos="left">Home</a>
+</div>
+<div data-role="content">
+    <a href="#" onclick="carregarPagina('novoAtendimento', 'atendimento');" data-role="button" data-icon="plus" data-inline="true">Novo</a>
+    <a href="#" onclick="novoComProposta();" data-role="button" data-icon="plus" data-inline="true">Novo (C/Proposta)</a>
+    <form>
+        <ul data-role="listview" data-inset="true">
+            <li data-role="fieldcontain">
+
+                <div data-role="collapsible" data-collapsed="false">
+                    <h3>Pesquisar Prospec&ccedil;&otilde;es</h3>
+                    <ul data-role="listview" data-inset="true" data-split-icon="check" data-split-theme="d" >
+
+                        <li data-role="fieldcontain" class="DetalheProspeccao">
+                            <label for="cdProspeccao"> Código</label>
+                            <input name="cdProspeccao" id="cdProspeccao" placeholder="Código da prospecção"  type="number" >
+                        </li>
+                        <li data-role="fieldcontain" class="DetalheProspeccao">
+                            <label for="nmCliente"> Cliente</label>
+                            <input name="nmCliente" id="nmCliente" placeholder="Nome do Cliente"  type="text" >
+                        </li>
+                        <li data-role="fieldcontain" class="DetalheProspeccao">
+                            <label for="cpfCnpjCliente"> CPF/CNPJ</label>
+                            <input name="cpfCnpjCliente" id="cpfCnpjCliente" placeholder="CPF/CNPJ do cliente"  type="text" onkeypress='return SomenteNumero(event)' >
+                        </li>
+                        <li data-role="fieldcontain" class="DetalheProspeccao">
+                            <label for="telCliente"> Telefone</label>
+                            <input name="telCliente" id="telCliente" placeholder="Telefone do cliente"  type="text" onkeypress='return SomenteNumero(event)' >
+                        </li>
+                        <li data-role="fieldcontain" class="DetalheProspeccao">
+                            <label for="dtInicio"> Data Inicial (Prospecção)</label>
+                            <input name="dtInicio" id="dtInicio" placeholder=""  type="text" data-clear-btn="true" onclick="$('#txtDtNascimento').datepicker({ dateFormat: 'dd/mm/yy' });"  maxlength="10" onkeypress="mascara(this, mdata);" onkeyup="backspace(this, event);">
+                        </li>
+                        <li data-role="fieldcontain" class="DetalheProspeccao">
+                            <label for="dtFim"> Data Final (Prospecção)</label>
+                            <input name="dtFim" id="dtFim" placeholder=""  type="text" data-clear-btn="true" onclick="$('#txtDtNascimento').datepicker({ dateFormat: 'dd/mm/yy' });"  maxlength="10" onkeypress="mascara(this, mdata);" onkeyup="backspace(this, event);">
+                        </li>
+
+                        <li data-role="fieldcontain" class="DetalheProspeccao">
+                            <label for="dtInicio"> Data Inicial (Previsão de Compra)</label>
+                            <input name="dtInicio" id="dtInicioCompra" placeholder=""  type="text" data-clear-btn="true" onclick="$('#txtDtNascimento').datepicker({ dateFormat: 'dd/mm/yy' });"  maxlength="10" onkeypress="mascara(this, mdata);" onkeyup="backspace(this, event);">
+                        </li>
+                        <li data-role="fieldcontain" class="DetalheProspeccao">
+                            <label for="dtFim"> Data Final (Previsão de Compra)</label>
+                            <input name="dtFim" id="dtFimCompra" placeholder=""  type="text" data-clear-btn="true" onclick="$('#txtDtNascimento').datepicker({ dateFormat: 'dd/mm/yy' });"  maxlength="10" onkeypress="mascara(this, mdata);" onkeyup="backspace(this, event);">
+                        </li>
+                        <li data-role="fieldcontain">
+                            <label for="slcTipoProdutoAtendimento1"> Tipo Produto</label>
+                            <select	name="" id="slcTipoProdutoAtendimento1"	onchange="carregarProdutos('#slcProdutoAtendimento1' ,this[this.selectedIndex].value)">
+                                <option value="titulo">Selecione um Tipo de Produto</option>
+                            </select>
+                        </li>
+                        <li data-role="fieldcontain">
+                            <label for="slcProdutoAtendimento1"> Produto</label>
+                            <select name=""	id="slcProdutoAtendimento1">
+                                <option value="titulo">Selecione um Produto</option>
+                            </select>
+                        </li>
+
+                        <li data-role="fieldcontain">
+                            <label for="slcSituacaoAtendimento"> Situação </label>
+                            <select	name="" id="slcSituacaoAtendimento" onchange="mostrarMotivos('.MotivoEncerramentoProspeccao' , '#slcMotivoEncerramentoAtendimento' , this[this.selectedIndex].value)">
+                                <option value="titulo">Selecione uma situação</option>
+                                <option value="A">Aberto</option>
+                                <option value="E">Encerrados</option>
+                                <option value="T">Todos</option>
+                            </select>
+                        </li>
+
+                        <li data-role="fieldcontain" class="MotivoEncerramentoProspeccao">
+                            <label for="slcMotivoEncerramentoAtendimento"> Motivo Encerramento</label>
+                            <select name=""	id="slcMotivoEncerramentoAtendimento">
+                                <option value="titulo">Selecione um motivo</option>
+                            </select>
+                        </li>
+
+
+                        <li data-role="fieldcontain">
+                            <div data-role="navbar" data-iconpos="top">
+                                <ul>
+                                    <li>
+                                        <a href="" id="btnPesquisarAtendimento" data-theme="" data-icon="search" name="pesquisar" onclick="carregarBuscaAtendimentos()"> Pesquisar </a>
+                                    </li>
+                                    <li>
+                                        <a href="" id="btnLimparPesquisarAtendimento" data-theme="" data-icon="delete" name="limpar" onclick="limparPesquisaProspeccao()"> Limpar </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li data-role="fieldcontain">
+                <div data-role="collapsible" data-collapsed="false">
+                    <h3>Prospec&ccedil;&otilde;es</h3>
+                    <ul data-role="listview" data-inset="true" data-split-icon="check" data-split-theme="d" id="listaAtendimentos">
+                        <!-- DINAMICO -->
+                        <span id="atendimentosOff" style="display: none">N&atilde;eso foi possível listar suas prospec&ccedil;&otilde;es!</span>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </form>
+    <div data-role="popup" data-overlay-theme="a"
+         id="popSucessoCadastro" style="padding: 15px 15px;">
+        Cadastro Efetuado com sucesso!
+    </div>
+    <div data-role="popup" data-overlay-theme="a"
+         id="popSucessoEditar" style="padding: 15px 15px;">
+        Editado com sucesso!
+    </div>
+    <div data-role="popup" data-overlay-theme="a"
+         id="popFalhaEditar" style="padding: 15px 15px;">
+        Falha ao editar!
+    </div>
+    <div data-role="popup" data-overlay-theme="a"
+         id="popFalhaCadastro" style="padding: 15px 15px;">
+        Falha ao realizar cadastro!
+    </div>
+    <div data-role="popup" data-overlay-theme="a"
+         id="popSucessoCadastroVinculado" style="padding: 15px 15px;">
+        Cadastro Efetuado e vinculado com sucesso!
+    </div>
+    <div data-role="popup" data-overlay-theme="a"
+         id="popFalhaCadastroVinculado" style="padding: 15px 15px;">
+        Falha ao realizar cadastro e vincular!
+    </div>
+    <div data-role="popup" id="popConfirmaExclusao" data-overlay-theme="a" data-theme="c" style="max-width:400px;" class="ui-corner-all">
+        <div data-role="header" data-theme="a" class="ui-corner-top">
+            <h1>Excluir o Atendimento</h1>
+        </div>
+        <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+            <h3 class="ui-title">Tem certeza que deseja excluir o atendimento?</h3>
+            <p>Essa ação não pode ser desfeita.</p>
+            <a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c">Cancelar</a>
+            <a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="b" id="btnExcluirAtendimento" >Excluir</a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    sessionStorage.removeItem('latitude');
+    sessionStorage.removeItem('longitude');
+
+    var dt = new Date();
+    var month = dt.getMonth()+1;
+    var day = dt.getDate();
+    var year = dt.getFullYear();
+    if(month < 10){month = "0"+month;}
+    $('#dtInicio').val(day + '/' + month + '/' + year);
+    $('#dtFim').val(day + '/' + month + '/' + year);
+
+    $( document ).ready(function() {
+        $('#dtFim').datepicker({ dateFormat: 'dd/mm/yy' });
+        $('#dtInicio').datepicker({ dateFormat: 'dd/mm/yy' });
+        $('#dtFimCompra').datepicker({ dateFormat: 'dd/mm/yy' });
+        $('#dtInicioCompra').datepicker({ dateFormat: 'dd/mm/yy' });
+        $('.MotivoEncerramentoProspeccao').hide();
+    });
+
+    function SomenteNumero(e){
+        var tecla=(window.event)?event.keyCode:e.which;
+        if((tecla>47 && tecla<58)) return true;
+        if((tecla>47 && tecla<58)) return true;
+        else{
+            if (tecla==8 || tecla==0) return true;
+            else  return false;
+        }
+    }
+
+</script>

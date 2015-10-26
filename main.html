@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Grow bit - Sales Domain -</title>
+
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="jquerymobile/datapicker.css">
+		<link rel="stylesheet" type="text/css" href="jquerymobile/jquerymobile131min.css" />
+		<link rel="stylesheet" type="text/css" href="css/dashboard.css">
+		<!-- /CSS -->
+	</head>
+
+	<body>
+		<div style="display:none">
+			<div id="usuario"></div>
+			<div id="codigo"></div>
+			<div id="login"></div>
+			<div id="status"></div>
+			<div id="email"></div>
+		</div>
+
+		<!-- Login -->
+		<div data-role="page" id="login">
+			<div data-theme="a" data-role="header" data-position="fixed">
+				<div style="float:left; margin:15px;  font-size:12px;">
+					Versão: <span id="versao_mobile"></span>
+				</div>
+				<h3><img src="images/salesdomaindarkgrey.png" width="130px"></h3>
+			</div>
+			<div data-role="content" align="center">
+				<img id="logoEmpresa" src="" />
+				<form>
+					<input name="txtUsuario" id="txtUsuario" placeholder="Usuário" type="number" data-clear-btn="true">
+					<input name="txtSenha" id="txtSenha" placeholder="Senha" type="password" data-clear-btn="true">
+					<label>
+						<input type="checkbox" name="lembrar" id="lembrar" value="S" checked="checked">
+						Lembrar Usuário e Senha </label>
+					<input type="button" id="btnEntrar" name="btnEntrar" data-theme="a" value="Entrar" onclick="autenticar();">
+				</form>
+				<div data-role="popup" data-overlay-theme="a"
+				id="popFalhaAutenticacao" style="padding: 15px 15px;">
+					Falha na Autenticação.
+					<br>
+					Usuário ou senha incorretos.
+				</div>
+			</div>
+		</div>
+
+		<!-- Atualiza 
+		
+		<div data-role="popup" id="DialogAtualizar"  data-overlay-theme="a" data-theme="c" data-url="DialogAtualizar"  style="display:none">
+			<div data-role="header" data-theme="a" class="ui-corner-top">
+				<h1>SalesDomamin</h1>
+			</div>
+			<div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+				<h3 class="ui-title">Existe uma versão mais nova para o SalesDomain!</h3>
+				<p>
+					Você deseja atualizar agora?
+				</p>
+				<input type="button" id="btnAtualiza" name="btnAtualiza" data-theme="a" value="Sim, atualizar agora." onclick="direcionaGooglePlay();" class="ui-btn-hidden" data-disabled="false">			
+			</div>
+		</div>
+-->
+		<!-- Insere Servidor -->
+		<div data-role="page" id="insereServidor"  data-close-btn="none">
+			<div data-theme="a" data-role="header" data-position="fixed">
+				<h3><img src="images/salesdomaindarkgrey.png" width="130px"></h3>
+			</div>
+			<div data-role="content" align="center">
+				<h4>Configuração de acesso:</h4>
+				<label for="txtServidor">Nome da empresa: </label>
+				<input id="txtServidor" placeholder="Ex.: growbit, motopema, motosol, ..." type="text"/>
+				<input type="button" id="btnAlterarServidor" data-theme="a" onclick="alterarServidor()" value="Salvar" />
+			</div>
+			<div data-role="popup" data-overlay-theme="a" id="popInvalido" style="padding: 15px 15px;">
+				Informe um caminho válido!
+			</div>
+		</div>
+
+		<!-- Main -->
+		<div id="main"></div>
+
+		<!-- JS -->
+
+		<!--script type="text/javascript" charset="utf-8" src="cordova.js"></script-->
+		<script type="text/javascript" src="jquerymobile/jquery191min.js"></script>
+		<script type="text/javascript" src="jquerymobile/datapicker.js"></script>
+		<script type="text/javascript" src="jquerymobile/jquerymobile131min.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/database.js"></script>
+		<script type="text/javascript" src="js/telas/home.js"></script>
+		<script type="text/javascript" src="js/telas/vendas.js"></script>
+		<script type="text/javascript" src="js/jsapi.js"></script>
+		<script type="text/javascript" src="js/telas/dashboardVisaoGeral.js"></script>
+		<script type="text/javascript" src="js/telas/dashboardVeiculosGestao.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/plugins/jquerymaskedinputmin.js"></script>
+		<script type="text/javascript" src="js/plugins/klassmin.js"></script>
+        <script type="text/javascript" src="js/telas/atendimento.js"></script>
+        <script type="text/javascript" src="js/telas/lead.js"></script>
+        <!-- /JS -->
+
+		<script>
+		getDiasAcessoOff();
+		//validarVersao();
+			$('#versao_mobile').text(localStorage.getItem('versao_mobile'));
+			if (localStorage.getItem("lembrar") == "S") {
+				$("#txtUsuario").val(localStorage.getItem("txtUsuario"));
+				$("#txtSenha").val(localStorage.getItem("txtSenha"));
+			}
+		</script>
+	</body>
+</html>

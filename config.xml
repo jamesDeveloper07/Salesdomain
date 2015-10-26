@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "br.com.salesdomain"
+        versionCode="13"
+        version   = "1.0.3">
+
+    <name>Salesdomain</name>
+
+    <icon src="icon.png" />
+
+    <description>
+        Aplicativos SalesDomain 
+    </description>
+
+    <author href="www.growbit.com.br" email="contato@growbit.com.br">
+        Grow bit 
+    </author>
+
+    <preference name="orientation" value="auto" />
+    <preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <!--
+    <feature name="http://api.phonegap.com/1.0/battery"/>
+    <feature name="http://api.phonegap.com/1.0/camera"/>
+    <feature name="http://api.phonegap.com/1.0/contacts"/>
+    <feature name="http://api.phonegap.com/1.0/file"/>
+    <feature name="http://api.phonegap.com/1.0/geolocation"/>
+    <feature name="http://api.phonegap.com/1.0/media"/>
+    <feature name="http://api.phonegap.com/1.0/notification"/>
+    -->
+    <feature name="http://api.phonegap.com/1.0/network"/>
+   
+    <access origin="*" />
+
+</widget>

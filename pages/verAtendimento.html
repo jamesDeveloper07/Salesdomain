@@ -1,0 +1,492 @@
+<div data-theme="a" data-role="header" data-position="fixed">
+    <h3>
+        <img src="images/salesdomaindarkgrey.png" width="130px">
+    </h3>
+    <a href="#" data-icon="back" data-iconpos="left" onclick="carregarPagina('atendimento', 'verAtendimento');">
+        Voltar
+    </a>
+</div>
+<div data-role="content">
+    <div id="codFuncionarioLogado" style="display:none;"></div>
+    <div id="cdAtendimento" style="display:none;"></div>
+    <div id="cdMotivoEncerramento" style="display:none;"></div>
+    <div id="dataInicio" style="display:none;"></div>
+    <div id="codFuncionario" style="display:none;"></div>
+    <div id="cdLead" style="display:none;"></div>
+
+    <div id="situacaoAberto"> <b><font size="10" face="verdana" color="green">&nbspA</font></b><b><font size="5" face="verdana" color="black">berto</font></b> </div>
+    <div id="situacaoEncerrado"> <b><font size="10" face="verdana" color="red">&nbspE</font></b><b><font size="5" face="verdana" color="black">ncerrado</font></b> </div>
+
+    <div id="formulario">
+        <form>
+            <ul data-role="listview" data-inset="true">
+                <li data-role="fieldcontain">
+                    <label for="txtCPFAtendimento">CPF/CNPJ</label>
+                    <input id="txtCPFAtendimento" placeholder="Informe o número do CPF/CNPJ" type="tel">
+                </li>
+                <li data-role="fieldcontain">
+                    <label for="txtNomeAtendimento">Nome*</label>
+                    <input id="txtNomeAtendimento" placeholder="Informe o Nome" type="text">
+                </li>
+                <li data-role="fieldcontain">
+                    <label for="txtTelefoneAtendimento">
+                        <a  onclick="maisTelefone(1)"  data-role ="button"  data-icon="plus"  data-iconpos="notext"  data-theme="c"  data-iconshadow="false"  data-inline="true" style="margin-top: -3px">Novo Telefone</a>
+                        Telefone
+                    </label>
+                    <div style="display: -webkit-inline-box; width: 60%;">
+                        <div style="width: 40%">
+                            <input id="txtDDDTelefoneAtendimento" placeholder="DDD" type="text" data-clear-btn="true" maxlength="3" onkeypress='return SomenteNumero(event)' >
+                        </div>
+                        <div style="width:100%">
+                            <input id="txtTelefoneAtendimento" placeholder="Informe o número do Telefone" type="text" data-clear-btn="true" maxlength=""  onkeypress='return SomenteNumero(event)' >
+                        </div>
+                    </div>
+                </li>
+
+                <li data-role="fieldcontain" id="telefone1" style="display: none">
+                    <label for="txtTelefoneAtendimento1">
+                        <a onclick="menosTelefone(1)" data-role ="button"  data-icon="minus" data-iconpos="notext" data-theme="c"  data-iconshadow="false"  data-inline="true" style="margin-top: -3px">Excluir Telefone</a>
+                        Telefone
+                    </label>
+                    <div style="display: -webkit-inline-box; width: 60%;">
+                        <div style="width: 40%">
+                            <input id="txtDDDTelefoneAtendimento1" placeholder="DDD" type="text" data-clear-btn="true" maxlength="3" onkeypress='return SomenteNumero(event)' >
+                        </div>
+                        <div style="width:100%">
+                            <input id="txtTelefoneAtendimento1" placeholder="Informe o número do Telefone" type="text" data-clear-btn="true" maxlength=""  onkeypress='return SomenteNumero(event)' >
+                        </div>
+                    </div>
+                </li>
+
+                <li data-role="fieldcontain" id="telefone2" style="display: none">
+                    <label for="txtTelefoneAtendimento2">
+                        <a onclick="menosTelefone(2)" data-role ="button"  data-icon="minus" data-iconpos="notext" data-theme="c"  data-iconshadow="false"  data-inline="true" style="margin-top: -3px">Excluir Telefone</a>
+                        Telefone
+                    </label>
+                    <div style="display: -webkit-inline-box; width: 60%;">
+                        <div style="width: 40%">
+                            <input id="txtDDDTelefoneAtendimento2" placeholder="DDD" type="text" data-clear-btn="true" maxlength="3" onkeypress='return SomenteNumero(event)' >
+                        </div>
+                        <div style="width:100%">
+                            <input id="txtTelefoneAtendimento2" placeholder="Informe o número do Telefone" type="text" data-clear-btn="true" maxlength=""  onkeypress='return SomenteNumero(event)' >
+                        </div>
+                    </div>
+                </li>
+
+                <li data-role="fieldcontain" id="telefone3" style="display: none">
+                    <label for="txtTelefoneAtendimento3">
+                        <a onclick="menosTelefone(3)" data-role ="button"  data-icon="minus" data-iconpos="notext" data-theme="c"  data-iconshadow="false"  data-inline="true" style="margin-top: -3px">Excluir Telefone</a>
+                        Telefone
+                    </label>
+                    <div style="display: -webkit-inline-box; width: 60%;">
+                        <div style="width: 40%">
+                            <input id="txtDDDTelefoneAtendimento3" placeholder="DDD" type="text" data-clear-btn="true" maxlength="3" onkeypress='return SomenteNumero(event)' >
+                        </div>
+                        <div style="width:100%">
+                            <input id="txtTelefoneAtendimento3" placeholder="Informe o número do Telefone" type="text" data-clear-btn="true" maxlength=""  onkeypress='return SomenteNumero(event)' >
+                        </div>
+                    </div>
+                </li>
+
+
+                <li data-role="fieldcontain">
+                    <div data-role="navbar" data-iconpos="top">
+                        <ul>
+                            <li>
+                                <a href="" id="btnPesquisarAtendimento" data-theme="" data-icon="search" name="pesquisar" onclick="buscarDadosCliente()"> Pesquisar </a>
+                            </li>
+                            <li>
+                                <a href="" id="btnLimparPesquisarAtendimento" data-theme="" data-icon="delete" name="limpar" onclick="limparPesquisar()"> Limpar </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </form>
+        <form>
+            <ul data-role="listview" data-inset="true">
+                <li data-role="fieldcontain">
+                    <label for="slcTipoPessoaAtendimento"> Tipo Pessoa* </label>
+                    <select	name="" id="slcTipoPessoaAtendimento">
+                        <option value="titulo">Selecione o Tipo da Pessoa</option>
+                        <option value="F">Fisica</option>
+                        <option value="J">Juridica</option>
+                    </select>
+                </li>
+                <li data-role="fieldcontain">
+                    <div  class="containing-element">
+                        <label for="flpSexoAtendimento">Sexo</label>
+                        <select name="flpSexoAtendimento" id="flpSexoAtendimento" data-role="slider">
+                            <option value="M">Masc</option>
+                            <option value="F">Fem</option>
+                        </select>
+                    </div>
+                </li>
+                <li data-role="fieldcontain">
+                    <label for="txtDtNascimento">Data Nascimento</label>
+                    <input id="txtDtNascimento" placeholder="Informe a data de nascimento" value="" type="text"onclick="$('#txtDtNascimento').datepicker({ dateFormat: 'dd/mm/yy' });"  maxlength="10" onkeypress="mascara(this, mdata);" onkeyup="backspace(this, event);">
+                </li>
+
+                <li data-role="fieldcontain">
+                    <label for="txtEmailAtendimento">E-mail</label>
+                    <input id="txtEmailAtendimento" placeholder="Informe o e-mail" type="email" data-clear-btn="true">
+                </li>
+
+                <li data-role="fieldcontain">
+                    <input type="button" id="verEnderecos" data-theme="a" value="Visualizar Endereços" onclick="enderecos($('#txtNomeAtendimento').attr('name'))" />
+                </li>
+                <li data-role="fieldcontain">
+                    <label for="dataQuando">Previsão de Compra</label>
+                    <input type="text" id="dataQuando" name="dataQuando" onclick="$('#dataQuando').datepicker({ dateFormat: 'dd/mm/yy' });"  maxlength="10" onkeypress="mascara(this, mdata);" onkeyup="backspace(this, event);"/>
+                </li>
+
+                <!--
+                <li data-role="fieldcontain">
+                    <label for="txObservacao" class="ui-input-text">Observação:</label>
+                    <textarea cols="40" rows="10" name="txObservacao" id="txObservacao" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></textarea>
+                </li>
+                -->
+
+               <li data-role="fieldcontain">
+                   <label for="txObservacao" class="ui-input-text">Observação</label>
+                   <br></br>
+                   <label name="txObservacao" id="txObservacao" ></label>
+               </li>
+
+               <!--
+               <li data-role="fieldcontain">
+                   <input type="button" id="verComentarios" data-theme="a" value="Comentarios" onclick="comentarios($('#cdAtendimento').text())" />
+               </li>
+               -->
+
+                <li data-role="fieldcontain" id="btnComentarios">
+                    <div class="DetalheCom">
+                        <input type="button" data-theme="a" value="Comentários (+)" data-icon="arrow-d" data-shadow="false"  onclick="$('.DetalheComentarios').show(); $('.DetalheCom').hide();" />
+                    </div>
+                    <div class="DetalheComentarios">
+                        <input type="button"  value="Comentários (-)"  data-icon="arrow-u" data-shadow="false" data-theme="b" onclick="$('.DetalheComentarios').hide(); $('.DetalheCom').show();" />
+                    </div>
+                </li>
+
+                <li data-role="fieldcontain" class="DetalheComentarios">
+                    <label for="txComentario" class="ui-input-text">Comentário</label>
+                    <textarea cols="40" rows="10" name="txComentario" id="txComentario" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" onkeypress='return enableEnter(event)' ></textarea>
+                </li>
+
+
+                <li data-role="fieldcontain" class="DetalheComentarios">
+                    <div data-role="navbar" data-iconpos="top">
+                        <ul>
+                            <li>
+                                <a href="" id="btnEnviarComentario" data-theme="" data-icon="check" name="enviar" onclick="enviarComentario($('#codFuncionarioLogado').text(), $('#cdAtendimento').text(), $('#codFuncionario').text(), $('#txComentario').val())"> Enviar Comentário </a>
+                                <!--<a href="" id="btnPesquisarAtendimento" data-theme="" data-icon="search" name="pesquisar" onclick="buscarDadosCliente()"> Pesquisar </a>-->
+                            </li>
+                            <li>
+                                <a href="" id="btnLimparComentario" data-theme="" data-icon="delete" name="limpar" onclick="limparComentario()"> Limpar Comentário </a>
+                                <!--<a href="" id="btnLimparPesquisarAtendimento" data-theme="" data-icon="delete" name="limpar" onclick="limparPesquisar()"> Limpar </a>-->
+                            </li>
+                            <li>
+                                <a href="" id="btnMostrarComentario" data-theme="" data-icon="search" name="mostrar" onclick="comentarios($('#cdAtendimento').text())"> Exibir Comentários </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li data-role="fieldcontain">
+                    <label for="slcExpectativaAtendimento"> Expectativa de Venda* </label>
+                    <select	name="" id="slcExpectativaAtendimento">
+                        <option value="titulo">Selecione a Expectativa de Venda</option>
+                        <option value="5">Baixa</option>
+                        <option value="6">Media</option>
+                        <option value="1">Alta</option>
+                    </select>
+                </li>
+                <li data-role="fieldcontain">
+                    <label for="slcTipoProdutoAtendimento"> Tipo Produto* </label>
+                    <select	name="" id="slcTipoProdutoAtendimento"	onchange="carregarProdutos('#slcProdutoAtendimento' ,this[this.selectedIndex].value)">
+                        <option value="titulo">Selecione um Tipo de Produto</option>
+                    </select>
+                </li>
+                <li data-role="fieldcontain">
+                    <label for="slcProdutoAtendimento"> Produto* </label>
+                    <select name=""	id="slcProdutoAtendimento" onchange="atualizarValores(this[this.selectedIndex].value)">
+                        <option value="titulo">Selecione um Produto</option>
+                    </select>
+                </li>
+                <li data-role="fieldcontain">
+                    <input type="button" id="btnDetalheProdutoAtendimento" data-theme="a" onclick="mostrarGaleria()" value="Detalhes do Produto" />
+                </li>
+                <li data-role="fieldcontain">
+                    <label for="txtPrecoAtendimento"> Preço </label>
+                    <input name="" id="txtPrecoAtendimento" placeholder="" value="" type="text" readonly="readonly">
+                </li>
+                <li data-role="fieldcontain">
+                    <label for="sldQuantidadeAtendimento">Quantidade</label>
+                    <input type="number" name="sldQuantidadeAtendimento" id="sldQuantidadeAtendimento" value="1" onchange="calculaValores()"/>
+                </li>
+                <li data-role="fieldcontain">
+                    <label	for="txtDescontoAtendimento"> Desconto </label>
+                    <input name="" id="txtDescontoAtendimento" placeholder="" value="0" type="text" onchange="calculaValores()">
+                </li>
+                <li data-role="fieldcontain">
+                    <label for="txtTotalAtendimento"> Total </label>
+                    <input name="" id="txtTotalAtendimento" placeholder="" value="" type="text" readonly="readonly">
+                </li>
+
+                <li data-role="fieldcontain" id="btnDetalheProspeccao">
+                    <div class="DetalhePro">
+                        <input type="button" data-theme="a" value="Mais Informações" data-icon="arrow-d" data-shadow="false"  onclick="$('.DetalheProspeccao').show(); $('.DetalhePro').hide();" />
+                    </div>
+                    <div class="DetalheProspeccao">
+                        <input type="button"  value="Menos Informações"  data-icon="arrow-u" data-shadow="false" data-theme="b" onclick="$('.DetalheProspeccao').hide(); $('.DetalhePro').show();" />
+                    </div>
+                </li>
+                <li data-role="fieldcontain" class="DetalheProspeccao">
+                    <label for="formaPagamento">Forma de Pagamento </label>
+                    <select	name="" id="formaPagamento">
+                        <option value="0">Selecione uma Forma de Pagamento</option>
+                    </select>
+                </li>
+                <li data-role="fieldcontain" class="DetalheProspeccao">
+                    <label for="qtPodePagar"> Quanto Pode Pagar de Entrada </label>
+                    <input name="" id="qtPodePagar" placeholder="" value="" type="number" >
+                </li>
+                <li data-role="fieldcontain" class="DetalheProspeccao">
+                    <label for="qtPodePagarParcelas"> Quanto Pode Pagar em Parcelas</label>
+                    <input name="" id="qtPodePagarParcelas" placeholder="" value="" type="number" >
+                </li>
+                <li data-role="fieldcontain" class="DetalheProspeccao">
+                    <label for="qtParcelas"> Quantidade de Parcelas</label>
+                    <input name="" id="qtParcelas" placeholder="" value="" type="number" >
+                </li>
+                <li data-role="fieldcontain" class="DetalheProspeccao">
+                    <label for="canalProspeccao"> Canal de Prospecção </label>
+                    <select	name="" id="canalProspeccao">
+                        <option value="">Selecione um Canal de Prospecção</option>
+                    </select>
+                </li>
+                <li data-role="fieldcontain" class="DetalheProspeccao">
+                    <label for="origemProspeccao"> Origem </label>
+                    <select	name="" id="origemProspeccao"	>
+                        <option value="">Selecione uma Origem</option>
+                    </select>
+                </li>
+                <li data-role="fieldcontain" class="DetalheProspeccao">
+                    <label for="produtoAtual"> Veiculo atual </label>
+                    <select	name="" id="produtoAtual">
+                        <option value="">Selecione um Veiculo atual </option>
+                    </select>
+                </li>
+                <li data-role="fieldcontain" class="DetalheProspeccao">
+                    <label for="anoModelo"> Ano Modelo </label>
+                    <input name="" id="anoModelo" placeholder="" value="" type="number">
+                </li>
+                <li data-role="fieldcontain" class="DetalheProspeccao">
+                    <label for="marcaModeloReal"> Marca/Modelo Real do Veículo</label>
+                    <input name="" id="marcaModeloReal" placeholder="" value="" type="text">
+                </li>
+                <!--li da
+                ta-role="fieldcontain">
+                    <label	for="txtComissaoAtendimento"> Comissão </label>
+                    <input name="" id="txtComissaoAtendimento" placeholder="" value="" type="text" readonly="readonly">
+                </li-->
+                <li data-role="fieldcontain">
+                    <div data-role="navbar" data-iconpos="top">
+                        <ul>
+                            <li><a href="" id="btnEditarAtendimento" data-theme="" data-icon="check" name="adicionar" onclick="editarAtendimento()"> Editar </a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </form>
+    </div>
+    <div id="galeria" style="display:none">
+        <a href="#" onclick="fecharGaleria();" data-role="button" data-icon="delete" data-inline="true">Fechar Galeria</a>
+        <IFRAME id="frameGaleria" frameBorder=0 height=100% marginHeight=0 marginWidth=0 scrolling=yes src="" width=100% BORDERCOLOR="#FFFFFF"></IFRAME>
+        <div>
+        </div>
+
+        <div data-role="popup" data-overlay-theme="a" id="popNomeInvalido" style="padding: 15px 15px;">
+            Para buscar por nome precisa de no minimo 5 caracteres
+        </div>
+
+        <div data-role="popup" data-overlay-theme="a" id="popCpfCnpjInvalido" style="padding: 15px 15px;">
+            Favor, digitar um CPF/CNPJ valido!
+        </div>
+
+        <div data-role="popup" data-overlay-theme="a" id="popFalhaValidaCampos" style="padding: 15px 15px;">
+            Favor, preencher os campos obrigatórios!
+        </div>
+
+        <div data-role="popup" data-overlay-theme="a" id="popFalhaDetalheProduto" style="padding: 15px 15px;">
+            Favor, Selecionar um produto!
+        </div>
+
+        <div data-role="popup" id="popListaClientes" data-overlay-theme="a" style="max-width:400px;">
+            <div data-role="header" data-theme="a" class="ui-corner-top">
+                <h1>Cliente</h1>
+            </div>
+            <ul data-role="listview" data-inset="true" id="listaCliente">
+                <!-- DINAMICO -->
+            </ul>
+        </div>
+
+        <div data-role="popup" id="popListaEnderecos" data-overlay-theme="a" style="max-width:400px;">
+            <div data-role="header" data-theme="a" class="ui-corner-top">
+                <h1>Endereços:</h1>
+            </div>
+            <ul data-role="listview" data-inset="true" id="listaEnderecos">
+                <!-- DINAMICO -->
+            </ul>
+        </div>
+
+        <div data-role="popup" id="popListaComentarios" data-overlay-theme="a" style="max-width:400px;">
+            <div data-role="header" data-theme="a" class="ui-corner-top">
+                <h1>Comentários:</h1>
+            </div>
+            <ul data-role="listview" data-inset="true" id="listaComentarios">
+                <!-- DINAMICO -->
+            </ul>
+        </div>
+
+
+
+        <div data-role="popup" id="popNovoComentario" data-overlay-theme="a" style="max-width:400px;">
+            <div data-role="header" data-theme="a" class="ui-corner-top">
+                <h1>Deixe Seu Comentário:</h1>
+            </div>
+
+            <!--
+            <li data-role="fieldcontain">
+                <label for="txComentario" class="ui-input-text">Comentário:</label>
+                <textarea cols="40" rows="10" name="txComentario" id="txComentario" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></textarea>
+            </li>
+            -->
+
+            <!--
+            <li data-role="fieldcontain">
+                <input type="button" id="enviarComentario" data-theme="a" value="Enviar" onclick="" />
+            </li>
+            -->
+
+        </div>
+
+        <div data-role="popup" data-overlay-theme="a"
+             id="popFalhaEnviarComentario" style="padding: 15px 15px;">
+            Falha ao enviar comentário!
+        </div>
+
+        <div data-role="popup" data-overlay-theme="a"
+             id="popSucessoEnviarComentario" style="padding: 15px 15px;">
+            Comentário enviado com sucesso!
+        </div>
+
+
+
+
+
+        <script type="text/javascript">
+
+            buscarCodFuncionarioLogado();
+
+            function   maisTelefone(id){
+
+                $('#telefone1').show();
+                $('#telefone2').show();
+                $('#telefone3').show();
+            }
+
+            function   menosTelefone(id){
+                $('#telefone'+id+'').hide();
+            }
+
+            $( document ).ready(function() {
+                $('#txtDtNascimento').datepicker({ dateFormat: 'dd/mm/yy' });
+                $('#dataQuando').datepicker({ dateFormat: 'dd/mm/yy' });
+                if(localStorage.getItem('loginOff')== "false"){
+                    $('#localidade_offline').hide();
+                    $('#btnEnderecoProspeccao').show();
+
+                }else{
+                    $('#localidade_offline').show();
+                    $('#btnEnderecoProspeccao').hide();
+                }
+
+            });
+
+            $('.DetalheComentarios').hide();
+
+            $('.DetalheProspeccao').hide();
+
+            $('.enderecoProspeccao').hide();
+
+            formaPagamento();
+
+            carregarCanalProspeccao();
+
+            carregaracaoMarketing();
+
+            produtosReferencia();
+
+
+            function SomenteNumero(e){
+                var tecla=(window.event)?event.keyCode:e.which;
+                if((tecla>47 && tecla<58) || tecla == 45) return true;
+                else{
+                    if (tecla==8 || tecla==0) return true;
+                    else  return false;
+                }
+            }
+
+            function enableEnter(e) {
+                var tecla=(window.event)?event.keyCode:e.which;
+
+                // If the user has pressed enter
+                if (tecla == 13) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            function selecionarLocalidade(localidade, cep){
+                $("#buscaLocalidade").val(localidade);
+                $("#localidadesResult").html("");
+                $('#localidade_cep').val(cep);
+            }
+
+            $('#localidade_estado').change(function(){
+                loader(1);
+                if( $(this).val() ) {
+                    $.getJSON('http://hml.salesdomain.com.br/sdp/sdp/common/cidade/cidadeConsultGWT.jsp?op=consultByUf&cidadeT.uf_codigo='+ $(this).val(), function(j){
+                        var options = '<option value="" >Selecione uma cidade</option>';
+                        var cidades = j.resultado;
+                        for (var i = 1; i < cidades.length; i++) {
+                            options += '<option value="' + cidades[i].cidade_codigo + '">' + cidades[i].cidade_descricao + '</option>';
+                        }
+                        $('#localidade_cidade').html(options);
+                        loader(0);
+                    });
+                } else {
+                    $('#localidade_cidade').html('<option value="">-- Escolha um estado --</option>');
+                }
+            });
+
+            $('#localidade_cidade').change(function(){
+                loader(1);
+                if( $(this).val() ) {
+                    $.getJSON('http://hml.salesdomain.com.br/sdp/sdp/common/bairro/bairroConsultGWT.jsp?op=consultByCidade&bairroT.cidade_codigo='+ $(this).val(), function(j){
+                        var options = '<option value="">Selecione um bairro</option>';
+                        var cidades = j.resultado;
+                        for (var i = 1; i < cidades.length; i++) {
+                            options += '<option value="' + cidades[i].bairro_codigo + '">' + cidades[i].bairro_descricao + '</option>';
+                        }
+                        $('#localidade_bairro').html(options);
+                        loader(0);
+                    });
+                } else {
+                    $('#localidade_cidade').html('<option value="">-- Escolha uma cidade --</option>');
+                }
+            });
+
+        </script>
